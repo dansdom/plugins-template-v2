@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title></title>
+          <!-- Meta tags -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />  <!-- w3c recomends this meta tag  -->
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />  <!-- w3c recomends this meta tag  -->
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="copyright" content="" />
+	<meta name="author" content="" />
+	<meta name="rating" content="general" />
+	<meta name="robots" content="all" />
+        <!-- Stylesheets -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	    <!-- Javascripts -->
+    <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="js/plugin.js"></script>
+    <script language="javascript" type="text/javascript">
+    		$(document).ready(function(){
+				
+				$(".box:eq(0)").testPlugin({
+				    myBgColor:'green',
+				    boxHeight:'100px'
+				});
+				
+				$(".box:eq(1)").testPlugin({
+					MyBorderColor:'orange',
+					myBgColor:'pink',
+					boxHeight:'30px'
+				});
+				$(".box:eq(2)").testPlugin({
+					boxHeight:'80px'
+				});
+				$(".box:eq(3)").testPlugin({
+				    MyBorderColor:'black',
+				    boxHeight:'200px'
+				});
+				$(".box:eq(4)").testPlugin();
+				
+				$(".doSomething").click(function(){
+					$(".box:eq(0)").testPlugin({"myBgColor":"grey"});
+					$(".box:eq(3)").testPlugin({"MyBorderColor":"yellow"});
+				});
+				//$(".box:eq(0)").testPlugin("destroy", "something1");
+				
+			});
+    </script>
+
+</head>
+
+<body>
+
+      <div id="wrap">
+      
+      	   <div class="box" id="test"></div>
+      	   <div class="box"></div>
+      	   <div class="box"></div>
+      	   <div class="box"></div>
+      	   <div class="box"></div>
+			<input type="button" class="doSomething" value="change some settings" />
+      </div>  <!-- end of wrap div -->
+      
+</body>
+</html>
