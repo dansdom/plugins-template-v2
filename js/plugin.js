@@ -21,7 +21,7 @@
 		// this is the namespace for all bound event handlers in the plugin
 		this.namespace = "testPlugin";
 		// extend the settings object with the options, make a 'deep' copy of the object using an empty 'holding' object
-		this.options = $.extend(true, {}, $.TestPlugin.settings, options);
+		this.opts = $.extend(true, {}, $.TestPlugin.settings, options);
 		this.init();
 	};
 	
@@ -65,7 +65,7 @@
 			
 		},
 		option : function(args) {
-			this.options = $.extend(true, {}, this.options, args);
+			this.opts = $.extend(true, {}, this.opts, args);
 		},
 		styleBox : function() {
 			this.element.css("background", this.options.myBgColor);
