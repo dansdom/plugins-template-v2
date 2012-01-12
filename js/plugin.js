@@ -17,7 +17,7 @@
 	$.TestPlugin = function (options, element, callback)
 	{
 		// wrap the element in the jQuery object
-		this.element = $(element);
+		this.el = $(element);
 		// this is the namespace for all bound event handlers in the plugin
 		this.namespace = "testPlugin";
 		// extend the settings object with the options, make a 'deep' copy of the object using an empty 'holding' object
@@ -79,7 +79,7 @@
 		},
 		destroy : function() {
 			consoleLog("unbinding namespaced events");
-			this.element.unbind("."+this.namespace);
+			this.el.unbind("." + this.namespace);
 		}
 	};
 	
