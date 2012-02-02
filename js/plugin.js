@@ -3,15 +3,6 @@
 (function ($) {
 	// this ones for you 'uncle' Doug!
 	'use strict';
-	// just a logging function to output logging without danger of breaking the script
-	var consoleLog = function(msg)
-	{
-		// turn this off for production code
-		var debugMode = true;
-		if (console && console.log && debugMode === true) {
-			console.log(msg);
-		}
-	};
 	
 	// Plugin namespace definition
 	$.TestPlugin = function (options, element, callback)
@@ -78,7 +69,7 @@
 			this.element.animate({height: "50px"}, 1000);
 		},
 		destroy : function() {
-			consoleLog("unbinding namespaced events");
+			//console.log("unbinding namespaced events");
 			this.el.unbind("." + this.namespace);
 		}
 	};
@@ -101,12 +92,12 @@
 				
 				// if there is no data for this instance of the plugin, then the plugin needs to be initialised first, so just call an error
 				if (!pluginInstance) {
-					consoleLog("The plugin has not been initialised yet when you tried to call this method: " + options);
+					alert("The plugin has not been initialised yet when you tried to call this method: " + options);
 					return;
 				}
 				// if there is no method defined for the option being called, or it's a private function (but I may not use this) then return an error.
 				if (!$.isFunction(pluginInstance[options]) || options.charAt(0) === "_") {
-					consoleLog("the plugin contains no such method: " + options);
+					alert("the plugin contains no such method: " + options);
 					return;
 				}
 				// apply the method that has been called
