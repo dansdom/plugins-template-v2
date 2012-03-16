@@ -33,22 +33,22 @@
 			// this seems a bit hacky, but for now I will unbind the namespace first before binding
 			this.destroy();
 			
-			this.element.bind('click.'+this.namespace, function() {
+			this.el.bind('click.'+this.namespace, function() {
 				myObject.styleBox();
 			});
 			
 			// mouseover function
-			this.element.bind('mouseover.'+this.namespace, function()
+			this.el.bind('mouseover.'+this.namespace, function()
 			{
 				myObject.moveUp();
 			});
 			
-			this.element.bind('mouseout.'+this.namespace, function()
+			this.el.bind('mouseout.'+this.namespace, function()
 			{
 				myObject.moveBack();
 			});
 			
-			this.element.bind('test.'+this.namespace, function(event)
+			this.el.bind('test.'+this.namespace, function(event)
 			{
 				console.log("namespace: "+event.namespace);
 				//return event.namespace;
@@ -59,14 +59,14 @@
 			this.opts = $.extend(true, {}, this.opts, args);
 		},
 		styleBox : function() {
-			this.element.css("background", this.options.myBgColor);
-			this.element.css("border", "1px solid " + this.options.MyBorderColor);
+			this.el.css("background", this.opts.myBgColor);
+			this.el.css("border", "1px solid " + this.opts.MyBorderColor);
 		},
 		moveUp : function() {
-			this.element.animate({"height": this.options.boxHeight}, 1000);
+			this.el.animate({"height": this.opts.boxHeight}, 1000);
 		},
 		moveBack : function() {
-			this.element.animate({height: "50px"}, 1000);
+			this.el.animate({height: "50px"}, 1000);
 		},
 		destroy : function() {
 			//console.log("unbinding namespaced events");
